@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useLazyQuery } from '@apollo/client'
 import { GET_WEATHER_QUERY } from './../graphql/Queries'
 
@@ -19,6 +19,18 @@ export default function Home() {
       <h3>Search Weather</h3>
       <input type="text" placeholder="City name" onChange={(e) => setCity(e.target.value)} />
       <button onClick={() => getWeather()}>Search</button>
+      <div className="weather-container">
+        {
+          data && (
+            <pre>
+              <code>
+                {JSON.stringify(data)}
+              </code>
+            </pre>
+          )
+        }
+
+      </div>
     </div>
   )
 }
